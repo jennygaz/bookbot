@@ -2,7 +2,9 @@ import sys
 from stats import get_num_words, get_symbols_usage, make_report
 
 def main():
-    filepath = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print('Usage: python main.py <path_to_book>')
+    filepath = sys.argv[1]
     num_words = get_num_words(filepath)
     symbols_usage = get_symbols_usage(filepath)
     symbols_stats = make_report(symbols_usage)
